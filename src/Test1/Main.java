@@ -20,11 +20,12 @@ public class Main {
         manager.printTokens(manager.getTokens(), manager.getWord());
 
 
-        int[] architecture = {3, 3, 3};
+        int[] architecture = {3, 50, 10, 600, 300, 200, 100, 300, 5, 30, 10, 1};
 
         Networker networker = new Networker();
 
         networker.createNetwork(architecture);
 
+        networker.forwardPass(manager.getTokens());
     }
 }
