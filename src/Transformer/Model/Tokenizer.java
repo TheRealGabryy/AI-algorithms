@@ -27,8 +27,8 @@ public class Tokenizer {
      * 1) char -> token (integer)
      * 2) token -> char
      */
-    private HashMap<Character, Integer> charToToken;
-    private HashMap<Integer, Character> tokenToChar;
+    private final HashMap<Character, Integer> charToToken;
+    private final HashMap<Integer, Character> tokenToChar;
 
     // Length of the English alphabet
     private static final int ALPH_LENGTH = 26;
@@ -79,8 +79,8 @@ public class Tokenizer {
             tokenToChar.put(token, c); // FIXED: use token, not i
         }
 
-        // Print mapping so it is visible in output
-        printCharToToken();
+        // Print mapping so it is visible in output, remove the comment to make the print appear at the start of the program
+        // printCharToToken();
     }
 
     /*
@@ -95,6 +95,33 @@ public class Tokenizer {
                 .forEach(e ->
                         System.out.println(e.getKey() + " -> " + e.getValue())
                 );
+    }
+    /*
+    * PURPOSE: using the charToToken map, given an input, return an array of int, where each int is the token of the character
+    *
+    * We initialize the 2 arrays of the same dimention, and with a for loop, iterate for each char to get the token*/
+    public int[] parseWord(String input) {
+        input = input.toLowerCase(); //Uppercase characters are different from lowercase ones, therefore it would give an error
+        char[] chars = input.toCharArray();
+        int[] tokens = new int[chars.length];
+
+        for (int i = 0; i < chars.length; i++) {
+            tokens[i] = charToToken.get(chars[i]);
+            System.out.print(tokens[i] + " ");
+        }
+        return tokens; //Used in Input.java
+    }
+
+    /*
+    * PURPOSE: convert back the tokens (array of ints) to a word (array of chars)
+    *
+    * This method is simplier because we don't have to split the word, we need to already have the array of tokens*/
+    public char[] parseToken(int[] tokens) {
+        char[] chars = new char[tokens.length];
+        for (int i = 0; i < tokens.length; i++) {
+            chars[i] = tokenToChar.get(tokens[i]);
+        }
+        return chars; //used in Input.Java
     }
 
     // Getters
