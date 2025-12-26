@@ -76,7 +76,7 @@ public class Tokenizer {
             int token = numbers.get(i);
 
             charToToken.put(c, token);
-            tokenToChar.put(token, c); // FIXED: use token, not i
+            tokenToChar.put(token, c);
         }
 
         // Print mapping so it is visible in output, remove the comment to make the print appear at the start of the program
@@ -96,10 +96,11 @@ public class Tokenizer {
                         System.out.println(e.getKey() + " -> " + e.getValue())
                 );
     }
+
     /*
-    * PURPOSE: using the charToToken map, given an input, return an array of int, where each int is the token of the character
-    *
-    * We initialize the 2 arrays of the same dimention, and with a for loop, iterate for each char to get the token*/
+     * PURPOSE: using the charToToken map, given an input, return an array of int, where each int is the token of the character
+     *
+     * We initialize the 2 arrays of the same dimention, and with a for loop, iterate for each char to get the token*/
     public int[] parseWord(String input) {
         input = input.toLowerCase(); //Uppercase characters are different from lowercase ones, therefore it would give an error
         char[] chars = input.toCharArray();
@@ -113,9 +114,9 @@ public class Tokenizer {
     }
 
     /*
-    * PURPOSE: convert back the tokens (array of ints) to a word (array of chars)
-    *
-    * This method is simplier because we don't have to split the word, we need to already have the array of tokens*/
+     * PURPOSE: convert back the tokens (array of ints) to a word (array of chars)
+     *
+     * This method is simplier because we don't have to split the word, we need to already have the array of tokens*/
     public char[] parseToken(int[] tokens) {
         char[] chars = new char[tokens.length];
         for (int i = 0; i < tokens.length; i++) {

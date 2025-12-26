@@ -16,46 +16,14 @@
 
 package Transformer;
 
-import Transformer.Model.Dataset;
-import Transformer.Model.Tokenizer;
-import Transformer.Utils.Manager;
-
-import java.util.Scanner;
-
 public class Main {
-    private static final Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        System.out.println("Test for the second algorithm of ai");
-        Manager manager = new Manager();
-        Tokenizer tokenizer = manager.getTokenizer();
-        Dataset dataset = manager.getDataset();
-
-        /*
-        * When entering a word, ensure with a rule based algorithm that the word isn't empty,
-        * or that the word doesn't contain numbers or special symbols, because the tokenizer can't
-        * tokenize such symbols.*/
-        System.out.println("Type a word to complete: ");
-        String word;
-        do {
-            System.out.print("-> ");
-            word = scanner.next();
-            if (checkInput(word)) {
-                System.out.println("You typed a wrong word. Try again.");
-            }
-        } while (checkInput(word));
-        tokenizer.parseWord(word);
-
-    }
-
-    public static boolean checkInput(String word) {
-        if (word.isBlank()) {
-            return true;
+        System.out.println("Transformer algorithm");
+        App app = new App();
+        try {
+            app.start();
+        } catch (Exception e) {
+            System.out.println("Error in the App: " + e);
         }
-        for (int i = 0; i < word.length(); i++) {
-            if (!Character.isLetter(word.charAt(i))) {
-                return true;
-            }
-        }
-        return false;
     }
 }

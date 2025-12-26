@@ -19,13 +19,13 @@ package Transformer.Utils;
 import Transformer.Model.Tokenizer;
 
 /*
-* PURPOSE OF THE CLASS:
-*
-* Handle all the information about the input of the user:
-* The word as a string
-* as an array of chars
-* as an array of tokens
-* as an embedding vector (TODO)*/
+ * PURPOSE OF THE CLASS:
+ *
+ * Handle all the information about the input of the user:
+ * The word as a string
+ * as an array of chars
+ * as an array of tokens
+ * as an embedding vector (TODO)*/
 public class Input {
 
     //final because we initialize it and not modify it anymore.
@@ -35,11 +35,11 @@ public class Input {
     private final int[] wordAsTokens;
 
     /*EXPLANATION: when we call the constructor in the MAIN, passing the word as parameter we do this in ORDER:
-    *
-    * 1) initialize a manager (to get the tokenizer, automatically initializing it)
-    * 2) parse the word into the tokenizer, returning the array of tokens.
-    * 3) automatically, we then call the opposite algorithm: from token to char (since we already have the array of tokens)
-    * 4) rebuild the word as a string using the new array of chars.*/
+     *
+     * 1) initialize a manager (to get the tokenizer, automatically initializing it)
+     * 2) parse the word into the tokenizer, returning the array of tokens.
+     * 3) automatically, we then call the opposite algorithm: from token to char (since we already have the array of tokens)
+     * 4) rebuild the word as a string using the new array of chars.*/
     public Input(String input) {
         Manager manager = new Manager();
         wordAsTokens = manager.getTokenizer().parseWord(input);

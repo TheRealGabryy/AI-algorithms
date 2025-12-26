@@ -20,11 +20,11 @@ import Transformer.Model.Dataset;
 import Transformer.Model.Tokenizer;
 
 /*
-* This Class job is to coordinate the functionalities of all other classes. this class has no private variables
-*
-* Instead of declaring too many classes in the main, we declare a manager clas, that handles everything.
-*
-* On the main we just use a copy of the classes, without accessing them directly*/
+ * This Class job is to coordinate the functionalities of all other classes. this class has no private variables
+ *
+ * Instead of declaring too many classes in the main, we declare a manager clas, that handles everything.
+ *
+ * On the main we just use a copy of the classes, without accessing them directly*/
 public class Manager {
     private final Tokenizer tokenizer = new Tokenizer(1);
     private final Dataset dataset = new Dataset();
